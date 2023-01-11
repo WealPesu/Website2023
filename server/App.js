@@ -6,7 +6,7 @@ const cookieSession = require("cookie-session");
 const passportSetup = require("./passport")
 const authRoute = require("./routes/auth")
 const cors = require("cors")
-require('dotenv').config();
+require('dotenv').config()
 const app = express();
 const mongo_uri = process.env.MONGO_URI
 app.use(bodyParser.urlencoded({ extended: true, limit: '20mb' }));
