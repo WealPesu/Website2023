@@ -4,7 +4,12 @@ import { Link, NavLink } from "react-router-dom";
 import "../src/style/Navbar.css";
 import logo from "./assets/WEAL.png";
 import pesuLogo from "./assets/PES2.png";
+import axios from "axios";
 const Navbar = ({user}) => {
+  axios.post("http://localhost:5000/api/currentuser",user)
+  .catch((err)=>{
+    console.log(err)
+  })
   const [showMediaIcons, setShowMediaIcons] = useState(false);
   const logout=()=>{
     window.open("http://localhost:5000/auth/logout","_self")
@@ -75,9 +80,6 @@ const Navbar = ({user}) => {
               </ul>
                 ):(<Link className="link-names toggler" style={{textDecoration:"none",color:"white"}} to="/SignIn">Login</Link>)
               }
-              
-              
-              
             </ul>
           </div>
           <img src={pesuLogo} alt="pesLogo" className="pesuLogo" />

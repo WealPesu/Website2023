@@ -1,9 +1,12 @@
-import '../style/Interface.css';
+import image from "../assets/greentick.png"
 function Submit(){
     
     return(
-        
-        <h1 style={{color:"whitesmoke"}}>Form submitted!</h1>
+        <div>
+            <img src={image} style={{position:"absolute",left:"37%",top:"25%"}} 
+            height="300px" width="400px"/>
+            <h1 style={{color:"white",position:"absolute",left:"39%",top:"74%"}}>Form submitted!</h1>
+        </div>
     );
 }
 

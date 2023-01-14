@@ -50,6 +50,7 @@
 // export default Interface;
 
 import React, { useReducer } from 'react';
+import axios from "axios"
 import '../style/Interface.css';
 
 const formReducer = (state, event) => {
@@ -65,8 +66,13 @@ export default function Interface() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (Object.keys(formData).length == 0) return console.log("Don't have Form Data");
-        console.log(formData)
+        if (Object.keys(formData).length === 0) return console.log("Don't have Form Data");
+        axios.post('http://localhost:5000/api/confessions', formData).then(()=>{
+            window.open("http://localhost:3000/submit","_self")
+        })
+      .catch((error) => {
+        alert(error)
+      });
     }
 
     return (
